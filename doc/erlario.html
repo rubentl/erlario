@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module erlario</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module erlario</h1>
+<ul class="index"><li><a href="#types">Data Types</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+
+<h2><a name="types">Data Types</a></h2>
+
+<h3 class="typedecl"><a name="type-date">date()</a></h3>
+<p><tt>date() = #date{year = <a href="calendar.html#type-year">calendar:year()</a>, month = <a href="calendar.html#type-month">calendar:month()</a>, day = <a href="calendar.html#type-day">calendar:day()</a>}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-id_date">id_date()</a></h3>
+<p><tt>id_date() = #id_date{id = binary(), fecha = any()}</tt></p>
+
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#date_to_binary-1">date_to_binary/1</a></td><td>Convierte la primera 3-tupla de tipo #date{} en binary
+  para poder usarlo de clave primaria en ets y así poder
+  ordenar por fecha.</td></tr>
+<tr><td valign="top"><a href="#month_all_days-2">month_all_days/2</a></td><td>Lista con todos los días del mes.</td></tr>
+<tr><td valign="top"><a href="#month_to_weeks-2">month_to_weeks/2</a></td><td>Devuelve una lista de listas con todos los días del mes separados por
+  semanas.</td></tr>
+<tr><td valign="top"><a href="#name_of_day-4">name_of_day/4</a></td><td>Nombre del día de la semana.</td></tr>
+<tr><td valign="top"><a href="#name_of_month-2">name_of_month/2</a></td><td>Nombre del mes.</td></tr>
+<tr><td valign="top"><a href="#next_day-1">next_day/1</a></td><td>Devuelve el siguiente día en formato
+  {Year,Month,Day}.</td></tr>
+<tr><td valign="top"><a href="#year_all_days-1">year_all_days/1</a></td><td>Se obtiene una lista de listas con todos los días del año
+  separados por meses.</td></tr>
+<tr><td valign="top"><a href="#year_all_month-2">year_all_month/2</a></td><td>Mapa con todos los meses del año, el key es el nombre del mes y el value es
+  una lista con todos los días de ese mes.</td></tr>
+<tr><td valign="top"><a href="#year_to_ets-2">year_to_ets/2</a></td><td>De un año y las opciones para ets se obtiene en una
+  tabla ets los dias del año en formato #id_date.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="date_to_binary-1">date_to_binary/1</a></h3>
+<div class="spec">
+<p><tt>date_to_binary(Tuple) -&gt; binary()</tt>
+<ul class="definitions"><li><tt>Tuple = #date{year = <a href="calendar.html#type-year">calendar:year()</a>, month = <a href="calendar.html#type-month">calendar:month()</a>, day = <a href="calendar.html#type-day">calendar:day()</a>}</tt></li></ul></p>
+</div><p>Convierte la primera 3-tupla de tipo #date{} en binary
+  para poder usarlo de clave primaria en ets y así poder
+  ordenar por fecha
+</p>
+
+<h3 class="function"><a name="month_all_days-2">month_all_days/2</a></h3>
+<div class="spec">
+<p><tt>month_all_days(Month, Year) -&gt; [<a href="calendar.html#type-day">calendar:day()</a>]</tt>
+<ul class="definitions"><li><tt>Month = <a href="calendar.html#type-month">calendar:month()</a></tt></li><li><tt>Year = <a href="calendar.html#type-year">calendar:year()</a></tt></li></ul></p>
+</div><p>Lista con todos los días del mes.
+</p>
+
+<h3 class="function"><a name="month_to_weeks-2">month_to_weeks/2</a></h3>
+<div class="spec">
+<p><tt>month_to_weeks(Month, Year) -&gt; [[<a href="calendar.html#type-day">calendar:day()</a>]]</tt>
+<ul class="definitions"><li><tt>Month = <a href="calendar.html#type-month">calendar:month()</a> | list()</tt></li><li><tt>Year = <a href="calendar.html#type-year">calendar:year()</a> | list()</tt></li></ul></p>
+</div><p>Devuelve una lista de listas con todos los días del mes separados por
+  semanas
+</p>
+
+<h3 class="function"><a name="name_of_day-4">name_of_day/4</a></h3>
+<div class="spec">
+<p><tt>name_of_day(Day, Month, Year, Lang) -&gt; string()</tt>
+<ul class="definitions"><li><tt>Day = <a href="calendar.html#type-day">calendar:day()</a></tt></li><li><tt>Month = <a href="calendar.html#type-month">calendar:month()</a></tt></li><li><tt>Year = <a href="calendar.html#type-year">calendar:year()</a></tt></li><li><tt>Lang = {string()}</tt></li></ul></p>
+</div><p>Nombre del día de la semana.
+</p>
+
+<h3 class="function"><a name="name_of_month-2">name_of_month/2</a></h3>
+<div class="spec">
+<p><tt>name_of_month(Day, Lang) -&gt; string()</tt>
+<ul class="definitions"><li><tt>Day = <a href="calendar.html#type-day">calendar:day()</a></tt></li><li><tt>Lang = {string()}</tt></li></ul></p>
+</div><p>Nombre del mes
+</p>
+
+<h3 class="function"><a name="next_day-1">next_day/1</a></h3>
+<div class="spec">
+<p><tt>next_day(Fecha) -&gt; <a href="calendar.html#type-date">calendar:date()</a></tt>
+<ul class="definitions"><li><tt>Fecha = <a href="calendar.html#type-date">calendar:date()</a></tt></li></ul></p>
+</div><p>Devuelve el siguiente día en formato
+  {Year,Month,Day}
+</p>
+
+<h3 class="function"><a name="year_all_days-1">year_all_days/1</a></h3>
+<div class="spec">
+<p><tt>year_all_days(Year) -&gt; [list()]</tt>
+<ul class="definitions"><li><tt>Year = <a href="calendar.html#type-year">calendar:year()</a></tt></li></ul></p>
+</div><p>Se obtiene una lista de listas con todos los días del año
+  separados por meses.
+</p>
+
+<h3 class="function"><a name="year_all_month-2">year_all_month/2</a></h3>
+<div class="spec">
+<p><tt>year_all_month(Year, Lang) -&gt; #{}</tt>
+<ul class="definitions"><li><tt>Year = <a href="calendar.html#type-year">calendar:year()</a></tt></li><li><tt>Lang = {list()}</tt></li></ul></p>
+</div><p>Mapa con todos los meses del año, el key es el nombre del mes y el value es
+  una lista con todos los días de ese mes.
+</p>
+
+<h3 class="function"><a name="year_to_ets-2">year_to_ets/2</a></h3>
+<div class="spec">
+<p><tt>year_to_ets(Year, Opts) -&gt; <a href="ets.html#type-tid">ets:tid()</a></tt>
+<ul class="definitions"><li><tt>Year = <a href="calendar.html#type-year">calendar:year()</a></tt></li><li><tt>Opts = list()</tt></li></ul></p>
+</div><p>De un año y las opciones para ets se obtiene en una
+  tabla ets los dias del año en formato #id_date
+</p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc</i></p>
+</body>
+</html>

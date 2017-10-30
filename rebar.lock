@@ -1,0 +1,4 @@
+[{<<"erlguten">>,
+  {git,"https://github.com/richcarl/erlguten.git",
+       {ref,"debd6120907e5e18b4bca5fbd5bdd9cb653f282d"}},
+  0}].

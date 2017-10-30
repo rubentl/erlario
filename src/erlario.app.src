@@ -1,0 +1,16 @@
+{application, erlario,
+ [{description, "Funciones que extienden calendar"},
+  {vsn, "1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib,
+    erlguten
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
